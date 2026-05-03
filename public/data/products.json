@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for summer outings and beach days.",
+    "image": "/Image/sunglass.webp",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Summer Glow Sunscreen",
+    "brand": "SkinCare+",
+    "price": 20,
+    "rating": 4.8,
+    "stock": 25,
+    "description": "SPF 50+ broad-spectrum protection to keep your skin safe from harsh UV rays.",
+    "image": "/Image/sunscreen.webp",
+    "category": "Skincare"
+  },
+  {
+    "id": 3,
+    "name": "Tropical Print Shirt",
+    "brand": "BeachVibe",
+    "price": 35,
+    "rating": 4.5,
+    "stock": 15,
+    "description": "Breathable cotton shirt with a vibrant tropical print, ideal for a cool summer look.",
+    "image": "/Image/Tshirt.webp",
+    "category": "Apparel"
+  },
+  {
+    "id": 4,
+    "name": "Portable Neck Fan",
+    "brand": "CoolBreeze",
+    "price": 25,
+    "rating": 4.6,
+    "stock": 30,
+    "description": "Stay cool anywhere with this lightweight, hands-free portable neck fan.",
+    "image": "/Image/Neck-fan.jpg",
+    "category": "Electronics"
+  },
+  {
+    "id": 5,
+    "name": "Waterproof Beach Bag",
+    "brand": "Oceanic",
+    "price": 30,
+    "rating": 4.4,
+    "stock": 12,
+    "description": "Durable and spacious waterproof bag to carry all your essentials to the beach safely.",
+    "image": "/Image/beach-bag.webp",
+    "category": "Accessories"
+  },
+  {
+    "id": 6,
+    "name": "Hydrating Face Mist",
+    "brand": "AquaPure",
+    "price": 12,
+    "rating": 4.9,
+    "stock": 50,
+    "description": "Instantly refresh and hydrate your skin during hot summer days with this cooling mist.",
+    "image": "/Image/mist.webp",
+    "category": "Skincare"
+  }
+]
