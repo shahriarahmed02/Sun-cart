@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "animate.css"; // Animation এর জন্য
+import "animate.css"; 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Toaster } from "react-hot-toast"; // নোটিফিকেশনের জন্য
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,20 +14,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="lemonade"> {/* DaisyUI সামার থিম */}
+    <html lang="en" data-theme="lemonade">
       <body className={inter.className}>
-        {/* টোস্ট নোটিফিকেশন */}
         <Toaster position="top-center" />
-        
-        {/* নেভিগেশন বার */}
         <Navbar />
-        
-        {/* মেইন কন্টেন্ট এলাকা (মিনিমাম হাইট দেওয়া হয়েছে যাতে ফুটার নিচে থাকে) */}
-        <main className="min-h-[calc(100vh-284px)]">
+        {/* মেইন কন্টেন্ট */}
+        <main className="min-h-[calc(100vh-300px)]">
           {children}
         </main>
-        
-        {/* ফুটার */}
         <Footer />
       </body>
     </html>

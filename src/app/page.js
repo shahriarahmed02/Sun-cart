@@ -4,6 +4,8 @@ import ExtraSections from "@/components/ExtraSections"; // নতুন কম�
 import fs from "fs";
 import path from "path";
 
+import Link from "next/link";
+
 export default function Home() {
   // JSON ডেটা রিড করা
   const filePath = path.join(process.cwd(), "public", "data", "products.json");
@@ -36,10 +38,12 @@ export default function Home() {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <button className="btn btn-outline border-[#00A99D] text-[#00A99D] hover:bg-[#00A99D] hover:border-none px-10 rounded-xl font-bold">
-            View All Products
-          </button>
-        </div>
+  <Link href="/products">
+    <button className="btn btn-outline border-[#00A99D] text-[#00A99D] hover:bg-[#00A99D] hover:text-white hover:border-none px-10 rounded-xl font-bold transition-all duration-300">
+      View All Products
+    </button>
+  </Link>
+</div>
       </section>
 
       {/* 3. Extra Sections: Summer Care Tips & Top Brands */}
@@ -48,7 +52,7 @@ export default function Home() {
 
       {/* 4. Simple Newsletter / CTA Section (Optional but adds 'Vercel' look) */}
       <section className="container mx-auto px-4 pb-20">
-        <div className="bg-[#167881] rounded-3xl p-10 md:p-20 text-center text-white relative overflow-hidden">
+        <div className="bg-[#1b808a] rounded-3xl p-10 md:p-20 text-center text-white relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Stay Cool This Summer!</h2>
             <p className="text-teal-100 mb-8 max-w-xl mx-auto text-lg">
