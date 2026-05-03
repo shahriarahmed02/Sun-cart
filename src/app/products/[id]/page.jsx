@@ -97,7 +97,7 @@ export default function ProductDetails() {
               ))}
             </div>
           </div>
-          
+           
           <div className="divider"></div>
           
           <div className="space-y-3">

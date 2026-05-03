@@ -10,6 +10,7 @@ export default function ProfilePage() {
   const defaultIcon = "https://i.ibb.co.com/v489pMv/user-icon.png";
 
   useEffect(() => {
+    // Load user data from localStorage on component mount
     const savedUser = JSON.parse(localStorage.getItem("user"));
     if (savedUser) {
       setUser(savedUser);
@@ -21,10 +22,12 @@ export default function ProfilePage() {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      // Validate file size (Limit: 1MB)
       if (file.size > 1024 * 1024) {
         toast.error("File is too large! Max 1MB.");
         return;
       }
+      // Convert image file to Base64 string for local storage
       const reader = new FileReader();
       reader.onloadend = () => setPreviewImage(reader.result);
       reader.readAsDataURL(file);
@@ -39,12 +42,23 @@ export default function ProfilePage() {
       ...user,
       name: formData.get("name"),
       address: formData.get("address"),
-      interests: formData.get("interests"), // কমা দিয়ে সেপারেট করা স্ট্রিং
+      interests: formData.get("interests"), // Comma-separated string
       userImage: previewImage
     };
 
+    // Save updated data to localStorage
     localStorage.setItem("user", JSON.stringify(updatedUser));
+    
+    // Update local state
     setUser(updatedUser);
+
+    /** 
+     * CRITICAL: Manually trigger the 'storage' event.
+     * This notifies the Navbar component to re-run its loadData() function 
+     * and update the profile picture/name immediately.
+     */
+    window.dispatchEvent(new Event("storage"));
+
     toast.success("Profile updated successfully! 🎉");
   };
 
@@ -139,7 +153,7 @@ export default function ProfilePage() {
         </div>
       </form>
 
-      {/* Interests Preview (Optional) */}
+      {/* Interests Preview (Dynamic Tags) */}
       {user.interests && (
         <div className="mt-10 pt-6 border-t border-gray-100">
           <h3 className="font-bold text-gray-700 mb-3">Your Interests:</h3>
