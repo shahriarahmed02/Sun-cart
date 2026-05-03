@@ -1,6 +1,6 @@
 import 'animate.css';
 import Link from 'next/link';
-
+import Banner from '../../public/Image/banner.jpg'
 const Hero = () => {
   return (
     <div className="relative w-full bg-white py-10 px-4 md:px-12 overflow-hidden">
@@ -42,7 +42,7 @@ const Hero = () => {
         <div className="w-full lg:w-2/3 relative h-[300px] md:h-[500px] animate__animated animate__fadeInRight">
           {/* Background Image from your public folder */}
           <img 
-            src="/image/banner.jpg" 
+            src={Banner} 
             alt="Summer Essentials"
             className="w-full h-full object-cover object-center"
           />
