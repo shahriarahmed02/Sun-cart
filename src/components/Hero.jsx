@@ -1,10 +1,11 @@
 import 'animate.css';
 import Link from 'next/link';
-import Banner from '../../public/Image/banner.jpg'
+import Image from 'next/image'; // 1. Import the Image component
+import BannerImg from '../../public/Image/banner.jpg'; // Verify capitalization!
+
 const Hero = () => {
   return (
     <div className="relative w-full bg-white py-10 px-4 md:px-12 overflow-hidden">
-      {/* Container with light yellow background like your design */}
       <div className="max-w-7xl mx-auto bg-[#FFF9E5] rounded-3xl overflow-hidden flex flex-col lg:flex-row items-center shadow-sm">
         
         {/* Left Side: Text Content */}
@@ -40,14 +41,16 @@ const Hero = () => {
 
         {/* Right Side: Image Area */}
         <div className="w-full lg:w-2/3 relative h-[300px] md:h-[500px] animate__animated animate__fadeInRight">
-          {/* Background Image from your public folder */}
-          <img 
-            src={Banner} 
+          {/* 2. Use the Next.js Image component for optimized loading */}
+          <Image 
+            src={BannerImg} 
             alt="Summer Essentials"
-            className="w-full h-full object-cover object-center"
+            fill // This makes it fill the parent container
+            priority // Helps with LCP (Loading speed)
+            className="object-cover object-center"
           />
-          {/* Subtle overlay to blend image with the yellow background if needed */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fff9e5f6] via-transparent to-transparent lg:block hidden"></div>
+          
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fff9e5f1] via-transparent to-transparent lg:block hidden"></div>
         </div>
       </div>
     </div>
