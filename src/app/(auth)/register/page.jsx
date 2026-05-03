@@ -17,14 +17,14 @@ const RegisterPage = () => {
       name,
       email,
       password,
-      userImage: "https://i.ibb.co.com/v489pMv/user-icon.png", // Default Image
+      userImage: "https://i.ibb.co.com/v489pMv/user-icon.png", 
     };
 
-    // লোকাল স্টোরেজে ডেটা সেভ করা
+    
     localStorage.setItem("user", JSON.stringify(userData));
     toast.success("Registration Successful! Please Login.");
     
-    // রেজিস্ট্রেশন শেষে লগইন পেজে পাঠিয়ে দেওয়া
+   
     router.push("/login");
   };
 

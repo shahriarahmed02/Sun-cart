@@ -9,7 +9,7 @@ function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
-  // কোথায় ফেরত যাবে সেটি ধরা (Default: Home)
+ 
   const callbackUrl = searchParams.get("callbackUrl") || "/";
 
   const handleLogin = (e) => {
@@ -17,21 +17,21 @@ function LoginForm() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    // ১. লোকাল স্টোরেজ থেকে রেজিস্টার্ড ইউজারকে খুঁজে বের করা
+    
     const savedUser = JSON.parse(localStorage.getItem("user"));
 
-    // ২. কন্ডিশন চেক (যদি ইউজার থাকে এবং পাসওয়ার্ড মিলে যায়)
+ 
     if (savedUser && savedUser.email === email && savedUser.password === password) {
       
-      // ৩. সবচেয়ে গুরুত্বপূর্ণ ধাপ: লগইন স্ট্যাটাস ট্রু করা
+      
       localStorage.setItem("isLoggedIn", "true");
       
       toast.success("Welcome back! ☀️");
 
-      // ৪. পেজটি রিফ্রেশ করে গন্তব্যে পাঠানো (যাতে নেভবার আপডেট হয়)
+      
       router.push(callbackUrl);
       
-      // ৫. কিছুক্ষণ পর হার্ড রিফ্রেশ দেওয়া যাতে মেমোরি সিঙ্ক হয়
+      
       setTimeout(() => {
         window.location.reload();
       }, 100);
@@ -92,7 +92,7 @@ function LoginForm() {
   );
 }
 
-// Next.js 15 এ useSearchParams ব্যবহার করলে Suspense লাগে
+
 export default function LoginPage() {
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>

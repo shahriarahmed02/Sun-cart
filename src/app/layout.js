@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Toaster position="top-center" />
         <Navbar />
-        {/* মেইন কন্টেন্ট */}
+     
         <main className="min-h-[calc(100vh-300px)]">
           {children}
         </main>

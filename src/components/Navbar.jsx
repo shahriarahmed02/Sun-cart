@@ -12,7 +12,7 @@ const Navbar = () => {
   const [cartCount, setCartCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // ১. ইউজার এবং কার্ট ডেটা লোড করা
+
   const loadData = () => {
     // ইউজার চেক
     const loggedIn = localStorage.getItem("isLoggedIn");
@@ -23,7 +23,6 @@ const Navbar = () => {
       setUser(null);
     }
 
-    // কার্ট কাউন্ট চেক
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     setCartCount(cart.length);
     setLoading(false);
@@ -32,24 +31,24 @@ const Navbar = () => {
   useEffect(() => {
     loadData();
 
-    // অন্য পেজ থেকে কার্ট বা প্রোফাইল আপডেট হলে যাতে নেভবার বুঝতে পারে
+    
     window.addEventListener("storage", loadData);
     return () => window.removeEventListener("storage", loadData);
   }, []);
 
-  // ২. লগআউট ফাংশন
+ 
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     setUser(null);
     toast.success("Logged out successfully");
     router.push("/");
-    // স্টেট ক্লিয়ার করার জন্য রিফ্রেশ
+    
     setTimeout(() => {
         window.location.reload();
     }, 100);
   };
 
-  // ৩. একটিভ লিঙ্ক স্টাইল
+
   const activeClass = (path) => 
     pathname === path 
       ? "bg-[#D1F3F1] text-[#00A99D] font-bold px-4 py-2 rounded-lg" 

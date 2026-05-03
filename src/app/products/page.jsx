@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 const ProductsPage = () => {
-  // JSON ডেটা রিড করা
+
   const filePath = path.join(process.cwd(), "public", "data", "products.json");
   const jsonData = fs.readFileSync(filePath, "utf-8");
   const allProducts = JSON.parse(jsonData);
@@ -25,5 +25,5 @@ const ProductsPage = () => {
   );
 };
 
-// এই লাইনটি অবশ্যই থাকতে হবে
+
 export default ProductsPage;

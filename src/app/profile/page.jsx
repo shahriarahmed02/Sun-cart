@@ -1,4 +1,4 @@
-"use client"; // ক্লায়েন্ট সাইড রেন্ডারিংয়ের জন্য এটি অবশ্যই লাগবে
+"use client"; 
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -10,7 +10,7 @@ export default function ProfilePage() {
     const router = useRouter();
 
     useEffect(() => {
-        // ১. লোকাল স্টোরেজ থেকে ডেটা চেক করা
+        
         const loggedIn = localStorage.getItem("isLoggedIn");
         const savedUser = localStorage.getItem("user");
 
@@ -18,15 +18,15 @@ export default function ProfilePage() {
             setUser(JSON.parse(savedUser));
             setLoading(false);
         } else {
-            // যদি লগইন না থাকে তবে লগইন পেজে পাঠিয়ে দেওয়া
+           
             router.push("/login?callbackUrl=/profile");
         }
     }, [router]);
 
-    // লগআউট ফাংশন
+    
     const handleLogout = () => {
         localStorage.removeItem("isLoggedIn");
-        // সেশন ক্লিয়ার করার পর হোমে পাঠানো এবং পেজ রিফ্রেশ করা
+       
         window.location.href = "/";
     };
 
@@ -41,7 +41,7 @@ export default function ProfilePage() {
     return (
         <div className="container mx-auto px-4 py-20 animate__animated animate__fadeIn">
             <div className="max-w-2xl mx-auto card bg-base-100 shadow-2xl border border-base-200 rounded-3xl overflow-hidden">
-                {/* প্রোফাইল টপ ডিজাইন */}
+               
                 <div className="h-32 bg-[#00A99D]"></div>
                 
                 <div className="card-body items-center text-center -mt-16">

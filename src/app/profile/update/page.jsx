@@ -52,11 +52,7 @@ export default function ProfilePage() {
     // Update local state
     setUser(updatedUser);
 
-    /** 
-     * CRITICAL: Manually trigger the 'storage' event.
-     * This notifies the Navbar component to re-run its loadData() function 
-     * and update the profile picture/name immediately.
-     */
+
     window.dispatchEvent(new Event("storage"));
 
     toast.success("Profile updated successfully! 🎉");

@@ -1,23 +1,23 @@
-"use client"; // ক্লায়েন্ট সাইড ফিচার (localStorage) ব্যবহারের জন্য
+"use client"; 
 import { notFound, redirect, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
 export default function ProductDetails() {
-  const params = useParams(); // Client Component এ useParams ব্যবহার করতে হয়
+  const params = useParams();
   const id = params?.id;
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ১. সেশন চেক (Client-side)
+ 
   useEffect(() => {
     const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
     if (!isAuthenticated) {
       redirect(`/login?callbackUrl=/products/${id}`);
     }
 
-    // ২. ডেটা ফেচ করা (পাবলিক ফোল্ডার থেকে)
+   
     const fetchProduct = async () => {
       try {
         const res = await fetch("/data/products.json");
@@ -39,7 +39,7 @@ export default function ProductDetails() {
     fetchProduct();
   }, [id]);
 
-  // ৩. কার্ট ফাংশনালিটি
+
   const handleAddToCart = () => {
     if (!product) return;
 
@@ -48,7 +48,7 @@ export default function ProductDetails() {
     
     localStorage.setItem("cart", JSON.stringify(newCart));
     
-    // নেভবার আপডেট করার জন্য ইভেন্ট পাঠানো
+
     window.dispatchEvent(new Event("storage")); 
     toast.success(`${product.name} added to cart! 🛒`);
   };
@@ -60,7 +60,7 @@ export default function ProductDetails() {
     <div className="container mx-auto p-4 md:p-10 min-h-screen">
       <div className="card lg:card-side bg-base-100 shadow-2xl border border-gray-100 p-4 md:p-8 animate__animated animate__fadeIn rounded-3xl">
         
-        {/* প্রোডাক্ট ইমেজ */}
+       
         <figure className="lg:w-1/2 overflow-hidden rounded-2xl">
           <img 
             src={product.image} 
@@ -69,7 +69,7 @@ export default function ProductDetails() {
           />
         </figure>
 
-        {/* প্রোডাক্ট ইনফরমেশন */}
+        
         <div className="card-body lg:w-1/2 space-y-4">
           <div>
             <div className="badge bg-[#E0F2F1] text-[#00A99D] border-none font-bold p-3 mb-2">

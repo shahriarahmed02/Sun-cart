@@ -1,18 +1,18 @@
 import Hero from "@/components/Hero";
 import ProductCard from "@/components/ProductCard";
-import ExtraSections from "@/components/ExtraSections"; // নতুন কম্পোনেন্টটি ইমপোর্ট করুন
+import ExtraSections from "@/components/ExtraSections"; 
 import fs from "fs";
 import path from "path";
 
 import Link from "next/link";
 
 export default function Home() {
-  // JSON ডেটা রিড করা
+  
   const filePath = path.join(process.cwd(), "public", "data", "products.json");
   const jsonData = fs.readFileSync(filePath, "utf-8");
   const allProducts = JSON.parse(jsonData);
 
-  // প্রথম ৩টি প্রোডাক্টকে পপুলার হিসেবে নেওয়া
+  
   const popularProducts = allProducts.slice(0, 3);
 
   return (
@@ -47,7 +47,7 @@ export default function Home() {
       </section>
 
       {/* 3. Extra Sections: Summer Care Tips & Top Brands */}
-      {/* এই কম্পোনেন্টটি আপনার ডিজাইন অনুযায়ী সব ইনফরমেটিভ পার্ট হ্যান্ডেল করবে */}
+     
       <ExtraSections />
 
       {/* 4. Simple Newsletter / CTA Section (Optional but adds 'Vercel' look) */}
