@@ -3,7 +3,7 @@
 SunCart is a modern e-commerce platform built for the **SunCart Summer Essentials Assignment**. It features a curated list of summer products, secure authentication, and a sleek user interface.
 
 ## 🚀 Live Demo
-[Insert your Vercel Link Here]
+[https://sun-cart-pearl.vercel.app/]
 
 ## ✨ Key Features
 - **Responsive Home Page**: Beautiful hero section with Animate.css and featured products.
